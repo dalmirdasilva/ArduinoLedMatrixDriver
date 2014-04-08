@@ -1,5 +1,73 @@
 In archive libArduinoLEDMatrixDriver.a:
 
+MAX7219Driver.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000005a  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  00000000  00000000  0000008e  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  0000008e  2**0
+                  ALLOC
+Disassembly of section .text:
+
+00000000 <_ZN13MAX7219DriverC2Ehhh>:
+   0:	fc 01       	movw	r30, r24
+   2:	60 83       	st	Z, r22
+   4:	41 83       	std	Z+1, r20	; 0x01
+   6:	22 83       	std	Z+2, r18	; 0x02
+   8:	08 95       	ret
+
+0000000a <_ZN13MAX7219DriverC1Ehhh>:
+   a:	fc 01       	movw	r30, r24
+   c:	60 83       	st	Z, r22
+   e:	41 83       	std	Z+1, r20	; 0x01
+  10:	22 83       	std	Z+2, r18	; 0x02
+  12:	08 95       	ret
+
+00000014 <_ZN13MAX7219Driver13createPackageEhh>:
+  14:	94 2f       	mov	r25, r20
+  16:	80 e0       	ldi	r24, 0x00	; 0
+  18:	70 e0       	ldi	r23, 0x00	; 0
+  1a:	68 2b       	or	r22, r24
+  1c:	79 2b       	or	r23, r25
+  1e:	cb 01       	movw	r24, r22
+  20:	08 95       	ret
+
+00000022 <_ZN13MAX7219Driver11sendPackageEj>:
+  22:	fc 01       	movw	r30, r24
+  24:	26 2f       	mov	r18, r22
+  26:	80 81       	ld	r24, Z
+  28:	61 81       	ldd	r22, Z+1	; 0x01
+  2a:	41 e0       	ldi	r20, 0x01	; 1
+  2c:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219DriverC2Ehhh>
+  30:	08 95       	ret
+
+00000032 <_ZN13MAX7219Driver12setScanLimitEh>:
+  32:	70 e0       	ldi	r23, 0x00	; 0
+  34:	7b 60       	ori	r23, 0x0B	; 11
+  36:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219DriverC2Ehhh>
+  3a:	08 95       	ret
+
+0000003c <_ZN13MAX7219Driver19setDisplayIntensityEh>:
+  3c:	70 e0       	ldi	r23, 0x00	; 0
+  3e:	7a 60       	ori	r23, 0x0A	; 10
+  40:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219DriverC2Ehhh>
+  44:	08 95       	ret
+
+00000046 <_ZN13MAX7219Driver13setDecodeModeEh>:
+  46:	70 e0       	ldi	r23, 0x00	; 0
+  48:	79 60       	ori	r23, 0x09	; 9
+  4a:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219DriverC2Ehhh>
+  4e:	08 95       	ret
+
+00000050 <_ZN13MAX7219Driver11setShutdownEh>:
+  50:	70 e0       	ldi	r23, 0x00	; 0
+  52:	7c 60       	ori	r23, 0x0C	; 12
+  54:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219DriverC2Ehhh>
+  58:	08 95       	ret
+
 LEDMatrixDriverMAX7221.o:     file format elf32-avr
 
 Sections:
