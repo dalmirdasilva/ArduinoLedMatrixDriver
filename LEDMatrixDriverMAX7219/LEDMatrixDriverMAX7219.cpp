@@ -11,6 +11,8 @@
 #ifndef __ARDUINO_DRIVER_LED_MATRIX_MAX7219_CPP__
 #define __ARDUINO_DRIVER_LED_MATRIX_MAX7219_CPP__ 1
 
+#include "LEDMatrixDriverMAX7219.h"
+
 LEDMatrixDriverMAX7219::LEDMatrixDriverMAX7219(unsigned char cols, unsigned char rows,
 			unsigned char dataPin, unsigned char clockPin, unsigned char loadPin) :
 			LEDMatrixDriver(8, 8) {
