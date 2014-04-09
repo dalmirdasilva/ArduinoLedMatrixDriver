@@ -58,7 +58,7 @@ public:
         DIGIT_UPTO_7 = 0x07
 	};
 
-    enum Shutdown {
+    enum ShutdownMode {
         SHUTDOWN_MODE = 0x00,
         NORMAL_MODE = 0x01
     };
@@ -70,7 +70,7 @@ public:
         DECODE_0_TO_7 = 0xff
     };
 
-    enum DisplayTest {
+    enum TestMode {
         TEST_MODE_OFF = 0x00,
         TEST_MODE_ON = 0x01
     };
