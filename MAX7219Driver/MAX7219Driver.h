@@ -89,6 +89,8 @@ public:
 
 	void sendPackage(unsigned int package);
 
+	void shiftOut2(uint8_t dataPin, uint8_t clockPin, uint8_t bitOrder, uint8_t val);
+
 	unsigned int createPackage(unsigned char data, unsigned char reg);
 };
 
