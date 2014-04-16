@@ -1,0 +1,41 @@
+#######################################
+# Syntax Coloring Map For MAX7219Driver
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+LEDMatrixDriver KEYWORD1
+LedValue    KEYWORD1
+RowShiftDirection   KEYWORD1
+ColShiftDirection   KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+isOutOfBounds   KEYWORD2
+setLed  KEYWORD2
+setRow  KEYWORD2
+setCol  KEYWORD2
+shiftLed    KEYWORD2
+shiftRow    KEYWORD2
+switchLeds  KEYWORD2
+switchCols  KEYWORD2
+switchRows  KEYWORD2
+invertLed   KEYWORD2
+invertCol   KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+ON	LITERAL1
+OFF	LITERAL1
+RED	LITERAL1
+GREEN	LITERAL1
+LEFT	LITERAL1
+RIGHT	LITERAL1
+UP	LITERAL1
+DOWN	LITERAL1

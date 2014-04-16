@@ -22,16 +22,19 @@
 
 #include <Arduino.h>
 
+#define MAX7219_WIDTH 8
+#define MAX7219_HEIGHT 8
+
 class MAX7219Driver {
 
-	unsigned char dataPin;
-	unsigned char clockPin;
-	unsigned char loadPin;
+    unsigned char dataPin;
+    unsigned char clockPin;
+    unsigned char loadPin;
 
 public:
 
-	enum Registers {
-	    NOOP = 0x00,
+    enum Registers {
+        NOOP = 0x00,
         DIGIT0 = 0x01,
         DIGIT1 = 0x02,
         DIGIT2 = 0x03,
@@ -44,10 +47,10 @@ public:
         INTENSITY = 0x0a,
         SCAN_LIMIT = 0x0b,
         SHUTDOWN = 0x0c,
-        DISPLAY_TEST = 0x0d
-	};
+        DISPLAY_TEST = 0x0f
+    };
 
-	enum ScanLimit {
+    enum ScanLimit {
         DIGIT_UPTO_0 = 0x00,
         DIGIT_UPTO_1 = 0x01,
         DIGIT_UPTO_2 = 0x02,
@@ -56,11 +59,10 @@ public:
         DIGIT_UPTO_5 = 0x05,
         DIGIT_UPTO_6 = 0x06,
         DIGIT_UPTO_7 = 0x07
-	};
+    };
 
     enum ShutdownMode {
-        SHUTDOWN_MODE = 0x00,
-        NORMAL_MODE = 0x01
+        SHUTDOWN_MODE = 0x00, NORMAL_MODE = 0x01
     };
 
     enum DecodeMode {
@@ -71,27 +73,29 @@ public:
     };
 
     enum TestMode {
-        TEST_MODE_OFF = 0x00,
-        TEST_MODE_ON = 0x01
+        TEST_MODE_OFF = 0x00, TEST_MODE_ON = 0x01
     };
 
-	MAX7219Driver(unsigned char dataPin, unsigned char clockPin, unsigned char loadPin);
+    MAX7219Driver(unsigned char dataPin, unsigned char clockPin,
+            unsigned char loadPin);
 
     void setShutdown(unsigned char value);
 
     void setDecodeMode(unsigned char mode);
 
-	void setDisplayIntensity(unsigned char intensity);
+    void setDisplayIntensity(unsigned char intensity);
 
-    void setScanLimit(unsigned char scanLimit);
+    void setScanLimit(unsigned char limit);
 
-    void setTestMode(unsigned char test);
+    void setTestMode(unsigned char mode);
 
-	void sendPackage(unsigned int package);
+    void fill(unsigned char patern);
 
-	void shiftOut2(uint8_t dataPin, uint8_t clockPin, uint8_t bitOrder, uint8_t val);
+    void writeRegister(unsigned char reg, unsigned char value);
 
-	unsigned int createPackage(unsigned char data, unsigned char reg);
+    void sendPackage(unsigned int package);
+
+    unsigned int createPackage(unsigned char reg, unsigned char payload);
 };
 
 #endif /* __ARDUINO_DRIVER_MAX7219_H__ */

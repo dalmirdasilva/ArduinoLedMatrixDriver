@@ -13,6 +13,7 @@
 
 class LEDMatrixDriver {
 
+protected:
 	unsigned char cols;
 	unsigned char rows;
 
@@ -35,6 +36,11 @@ public:
 		DOWN = 0x01
 	};
 
+    /**
+     *
+     */
+    virtual ~LEDMatrixDriver();
+
 	/**
 	 *
 	 */
@@ -44,11 +50,6 @@ public:
 	 *
 	 */
 	virtual unsigned char isOutOfBounds(unsigned char col, unsigned char row);
-
-	/**
-	 *
-	 */
-	virtual ~LEDMatrixDriver();
 
 	/**
 	 *
@@ -98,7 +99,7 @@ public:
 	/**
 	 *
 	 */
-	virtual void invertCol(unsigned char col) = 0;
+	virtual void invertCols(unsigned char col) = 0;
 
 	/**
 	 *

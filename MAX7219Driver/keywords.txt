@@ -23,7 +23,9 @@ setDisplayIntensity	KEYWORD2
 setScanLimit	KEYWORD2
 setTestMode	KEYWORD2
 sendPackage	KEYWORD2
-createPackage	KEYWORD2
+createPackage   KEYWORD2
+writeRegister   KEYWORD2
+fill   KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
