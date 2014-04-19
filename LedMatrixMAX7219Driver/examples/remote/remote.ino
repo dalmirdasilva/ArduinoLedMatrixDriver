@@ -1,13 +1,13 @@
 #include <IRremote.h>
 #include <MAX7219Driver.h>
-#include <LEDMatrixDriver.h>
-#include <LEDMatrixMAX7219Driver.h>
+#include <LedMatrixDriver.h>
+#include <LedMatrixMAX7219Driver.h>
 
 #define IR_RECEIVER_PIN 9
 
 IRrecv irReceiver(IR_RECEIVER_PIN);
 MAX7219Driver driver(10, 11, 12);
-LEDMatrixMAX7219Driver matrix(&driver, 8, 8);
+LedMatrixMAX7219Driver matrix(&driver, 8, 8);
 decode_results decodedSignal;
 
 void setup() {

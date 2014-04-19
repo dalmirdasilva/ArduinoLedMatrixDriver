@@ -1,8 +1,8 @@
 ARDUINO_LIB_PATH=/usr/share/arduino/libraries
 LIB_LIST=MAX7219Driver \
-	LEDMatrixDriver \
-	LEDMatrixMAX7219Driver \
-	LEDMatrixMAX7221Driver
+	LedMatrixDriver \
+	LedMatrixMAX7219Driver \
+	LedMatrixMAX7221Driver
 	
 SOURCE_PATH=`pwd`
 

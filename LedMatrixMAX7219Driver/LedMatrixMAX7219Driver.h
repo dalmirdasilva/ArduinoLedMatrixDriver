@@ -1,7 +1,7 @@
 /**
  * Arduino - LED Matrix MAX7219 driver
  *
- * LEDMatrixDriverMAX7219.h
+ * LedMatrixDriverMAX7219.h
  *
  * LED Matrix MAX7219 driver.
  *
@@ -11,13 +11,13 @@
 #ifndef __ARDUINO_DRIVER_LED_MATRIX_MAX7219_H__
 #define __ARDUINO_DRIVER_LED_MATRIX_MAX7219_H__ 1
 
-#include <LEDMatrixDriver.h>
+#include <LedMatrixDriver.h>
 #include <MAX7219Driver.h>
 
 #define MATRIX_WIDTH 8
 #define MATRIX_HEIGHT 8
 
-class LEDMatrixMAX7219Driver : public LEDMatrixDriver {
+class LedMatrixMAX7219Driver : public LedMatrixDriver {
 
     MAX7219Driver *driver;
 
@@ -26,11 +26,26 @@ class LEDMatrixMAX7219Driver : public LEDMatrixDriver {
 
 public:
 
-    ~LEDMatrixMAX7219Driver() {
+    ~LedMatrixMAX7219Driver() {
     }
 
-    LEDMatrixMAX7219Driver(MAX7219Driver *driver, unsigned char cols,
+    LedMatrixMAX7219Driver(MAX7219Driver *driver, unsigned char cols,
             unsigned char rows);
+
+    /**
+     *
+     */
+    virtual void clear();
+
+    /**
+     *
+     */
+    virtual void fill();
+
+    /**
+     *
+     */
+    virtual unsigned char getLed(unsigned char col, unsigned char row);
 
     /**
      *

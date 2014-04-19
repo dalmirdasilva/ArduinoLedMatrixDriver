@@ -1,15 +1,15 @@
 #include <MAX7219Driver.h>
-#include <LEDMatrixDriver.h>
-#include <LEDMatrixMAX7219Driver.h>
+#include <LedMatrixDriver.h>
+#include <LedMatrixMAX7219Driver.h>
 
-void blinkLed(LEDMatrixMAX7219Driver *matrix, unsigned char row, unsigned char col) {
+void blinkLed(LedMatrixMAX7219Driver *matrix, unsigned char row, unsigned char col) {
   matrix->setLed(row, col, 1);
   delay(5);
   matrix->setLed(row, col, 0);
   delay(5);
 }
 
-void turn(LEDMatrixMAX7219Driver *matrix, unsigned char row, unsigned char col, unsigned char v) {
+void turn(LedMatrixMAX7219Driver *matrix, unsigned char row, unsigned char col, unsigned char v) {
   matrix->setLed(row, col, v);
   delay(10);
 }
@@ -20,7 +20,7 @@ void setup() {
     Serial.println("Ready.");
 
     MAX7219Driver driver(12, 11, 10);
-    LEDMatrixMAX7219Driver matrix(&driver, 8, 8);
+    LedMatrixMAX7219Driver matrix(&driver, 8, 8);
     
    
     char i, k = 0;

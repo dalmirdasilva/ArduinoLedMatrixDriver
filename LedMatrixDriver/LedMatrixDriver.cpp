@@ -1,7 +1,7 @@
 /**
  * Arduino - LED Matrix driver
  * 
- * LEDMatrixDriver.cpp
+ * LedMatrixDriver.cpp
  * 
  * LED Matrix Driver.
  * 
@@ -11,17 +11,17 @@
 #ifndef __ARDUINO_DRIVER_LED_MATRIX_CPP__
 #define __ARDUINO_DRIVER_LED_MATRIX_CPP__ 1
 
-#include "LEDMatrixDriver.h"
+#include "LedMatrixDriver.h"
 
-LEDMatrixDriver::~LEDMatrixDriver() {
+LedMatrixDriver::~LedMatrixDriver() {
 }
 
-LEDMatrixDriver::LEDMatrixDriver(unsigned char cols, unsigned char rows) {
+LedMatrixDriver::LedMatrixDriver(unsigned char cols, unsigned char rows) {
     this->cols = cols;
     this->rows = rows;
 }
 
-unsigned char LEDMatrixDriver::isOutOfBounds(unsigned char col,
+unsigned char LedMatrixDriver::isOutOfBounds(unsigned char col,
         unsigned char row) {
     if (col >= this->cols || row >= this->rows) {
         return true;

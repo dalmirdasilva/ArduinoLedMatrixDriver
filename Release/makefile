@@ -9,8 +9,8 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include MAX7219Driver/subdir.mk
--include LEDMatrixDriverMAX7221/subdir.mk
--include LEDMatrixDriverMAX7219/subdir.mk
+-include LEDMatrixMAX7221Driver/subdir.mk
+-include LEDMatrixMAX7219Driver/subdir.mk
 -include LEDMatrixDriver/subdir.mk
 -include subdir.mk
 -include objects.mk

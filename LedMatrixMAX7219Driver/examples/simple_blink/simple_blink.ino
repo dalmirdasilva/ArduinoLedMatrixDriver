@@ -1,6 +1,6 @@
 #include <MAX7219Driver.h>
-#include <LEDMatrixDriver.h>
-#include <LEDMatrixMAX7219Driver.h>
+#include <LedMatrixDriver.h>
+#include <LedMatrixMAX7219Driver.h>
 
 void setup() {
 
@@ -9,7 +9,7 @@ void setup() {
     randomSeed(analogRead(0));
     
     MAX7219Driver driver(12, 11, 10);
-    LEDMatrixMAX7219Driver matrix(&driver, 8, 8);
+    LedMatrixMAX7219Driver matrix(&driver, 8, 8);
    
     char row, col;
     while (true) {

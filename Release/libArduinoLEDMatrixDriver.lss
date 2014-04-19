@@ -4,69 +4,207 @@ MAX7219Driver.o:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         0000005a  00000000  00000000  00000034  2**0
+  0 .text         0000017a  00000000  00000000  00000034  2**0
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
-  1 .data         00000000  00000000  00000000  0000008e  2**0
+  1 .data         00000008  00000000  00000000  000001ae  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000000  00000000  00000000  0000008e  2**0
+  2 .bss          00000000  00000000  00000000  000001b6  2**0
                   ALLOC
 Disassembly of section .text:
 
-00000000 <_ZN13MAX7219DriverC2Ehhh>:
-   0:	fc 01       	movw	r30, r24
-   2:	60 83       	st	Z, r22
-   4:	41 83       	std	Z+1, r20	; 0x01
-   6:	22 83       	std	Z+2, r18	; 0x02
-   8:	08 95       	ret
-
-0000000a <_ZN13MAX7219DriverC1Ehhh>:
-   a:	fc 01       	movw	r30, r24
-   c:	60 83       	st	Z, r22
-   e:	41 83       	std	Z+1, r20	; 0x01
-  10:	22 83       	std	Z+2, r18	; 0x02
+00000000 <_ZN13MAX7219Driver13createPackageEhh>:
+   0:	70 e0       	ldi	r23, 0x00	; 0
+   2:	6f 70       	andi	r22, 0x0F	; 15
+   4:	70 70       	andi	r23, 0x00	; 0
+   6:	76 2f       	mov	r23, r22
+   8:	66 27       	eor	r22, r22
+   a:	50 e0       	ldi	r21, 0x00	; 0
+   c:	64 2b       	or	r22, r20
+   e:	75 2b       	or	r23, r21
+  10:	cb 01       	movw	r24, r22
   12:	08 95       	ret
 
-00000014 <_ZN13MAX7219Driver13createPackageEhh>:
-  14:	94 2f       	mov	r25, r20
-  16:	80 e0       	ldi	r24, 0x00	; 0
-  18:	70 e0       	ldi	r23, 0x00	; 0
-  1a:	68 2b       	or	r22, r24
-  1c:	79 2b       	or	r23, r25
-  1e:	cb 01       	movw	r24, r22
-  20:	08 95       	ret
-
-00000022 <_ZN13MAX7219Driver11sendPackageEj>:
-  22:	fc 01       	movw	r30, r24
-  24:	26 2f       	mov	r18, r22
-  26:	80 81       	ld	r24, Z
-  28:	61 81       	ldd	r22, Z+1	; 0x01
-  2a:	41 e0       	ldi	r20, 0x01	; 1
-  2c:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219DriverC2Ehhh>
-  30:	08 95       	ret
-
-00000032 <_ZN13MAX7219Driver12setScanLimitEh>:
-  32:	70 e0       	ldi	r23, 0x00	; 0
-  34:	7b 60       	ori	r23, 0x0B	; 11
-  36:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219DriverC2Ehhh>
-  3a:	08 95       	ret
-
-0000003c <_ZN13MAX7219Driver19setDisplayIntensityEh>:
-  3c:	70 e0       	ldi	r23, 0x00	; 0
-  3e:	7a 60       	ori	r23, 0x0A	; 10
-  40:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219DriverC2Ehhh>
-  44:	08 95       	ret
-
-00000046 <_ZN13MAX7219Driver13setDecodeModeEh>:
-  46:	70 e0       	ldi	r23, 0x00	; 0
-  48:	79 60       	ori	r23, 0x09	; 9
-  4a:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219DriverC2Ehhh>
-  4e:	08 95       	ret
-
-00000050 <_ZN13MAX7219Driver11setShutdownEh>:
-  50:	70 e0       	ldi	r23, 0x00	; 0
-  52:	7c 60       	ori	r23, 0x0C	; 12
-  54:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219DriverC2Ehhh>
+00000014 <_ZN13MAX7219Driver11sendPackageEj>:
+  14:	ef 92       	push	r14
+  16:	ff 92       	push	r15
+  18:	0f 93       	push	r16
+  1a:	1f 93       	push	r17
+  1c:	8c 01       	movw	r16, r24
+  1e:	7b 01       	movw	r14, r22
+  20:	fc 01       	movw	r30, r24
+  22:	82 81       	ldd	r24, Z+2	; 0x02
+  24:	60 e0       	ldi	r22, 0x00	; 0
+  26:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219Driver13createPackageEhh>
+  2a:	f8 01       	movw	r30, r16
+  2c:	80 81       	ld	r24, Z
+  2e:	61 81       	ldd	r22, Z+1	; 0x01
+  30:	41 e0       	ldi	r20, 0x01	; 1
+  32:	2f 2d       	mov	r18, r15
+  34:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219Driver13createPackageEhh>
+  38:	f8 01       	movw	r30, r16
+  3a:	80 81       	ld	r24, Z
+  3c:	61 81       	ldd	r22, Z+1	; 0x01
+  3e:	41 e0       	ldi	r20, 0x01	; 1
+  40:	2e 2d       	mov	r18, r14
+  42:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219Driver13createPackageEhh>
+  46:	f8 01       	movw	r30, r16
+  48:	82 81       	ldd	r24, Z+2	; 0x02
+  4a:	61 e0       	ldi	r22, 0x01	; 1
+  4c:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219Driver13createPackageEhh>
+  50:	1f 91       	pop	r17
+  52:	0f 91       	pop	r16
+  54:	ff 90       	pop	r15
+  56:	ef 90       	pop	r14
   58:	08 95       	ret
+
+0000005a <_ZN13MAX7219Driver13writeRegisterEhh>:
+  5a:	70 e0       	ldi	r23, 0x00	; 0
+  5c:	6f 70       	andi	r22, 0x0F	; 15
+  5e:	70 70       	andi	r23, 0x00	; 0
+  60:	76 2f       	mov	r23, r22
+  62:	66 27       	eor	r22, r22
+  64:	50 e0       	ldi	r21, 0x00	; 0
+  66:	64 2b       	or	r22, r20
+  68:	75 2b       	or	r23, r21
+  6a:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219Driver13createPackageEhh>
+  6e:	08 95       	ret
+
+00000070 <_ZN13MAX7219Driver4fillEh>:
+  70:	bf 92       	push	r11
+  72:	cf 92       	push	r12
+  74:	df 92       	push	r13
+  76:	ef 92       	push	r14
+  78:	ff 92       	push	r15
+  7a:	0f 93       	push	r16
+  7c:	1f 93       	push	r17
+  7e:	df 93       	push	r29
+  80:	cf 93       	push	r28
+  82:	cd b7       	in	r28, 0x3d	; 61
+  84:	de b7       	in	r29, 0x3e	; 62
+  86:	28 97       	sbiw	r28, 0x08	; 8
+  88:	0f b6       	in	r0, 0x3f	; 63
+  8a:	f8 94       	cli
+  8c:	de bf       	out	0x3e, r29	; 62
+  8e:	0f be       	out	0x3f, r0	; 63
+  90:	cd bf       	out	0x3d, r28	; 61
+  92:	6c 01       	movw	r12, r24
+  94:	b6 2e       	mov	r11, r22
+  96:	de 01       	movw	r26, r28
+  98:	11 96       	adiw	r26, 0x01	; 1
+  9a:	e0 e0       	ldi	r30, 0x00	; 0
+  9c:	f0 e0       	ldi	r31, 0x00	; 0
+  9e:	88 e0       	ldi	r24, 0x08	; 8
+  a0:	01 90       	ld	r0, Z+
+  a2:	0d 92       	st	X+, r0
+  a4:	81 50       	subi	r24, 0x01	; 1
+  a6:	01 f4       	brne	.+0      	; 0xa8 <_ZN13MAX7219Driver4fillEh+0x38>
+  a8:	8e 01       	movw	r16, r28
+  aa:	0f 5f       	subi	r16, 0xFF	; 255
+  ac:	1f 4f       	sbci	r17, 0xFF	; 255
+  ae:	39 e0       	ldi	r19, 0x09	; 9
+  b0:	e3 2e       	mov	r14, r19
+  b2:	f1 2c       	mov	r15, r1
+  b4:	ec 0e       	add	r14, r28
+  b6:	fd 1e       	adc	r15, r29
+  b8:	c6 01       	movw	r24, r12
+  ba:	f8 01       	movw	r30, r16
+  bc:	61 91       	ld	r22, Z+
+  be:	8f 01       	movw	r16, r30
+  c0:	4b 2d       	mov	r20, r11
+  c2:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219Driver13createPackageEhh>
+  c6:	0e 15       	cp	r16, r14
+  c8:	1f 05       	cpc	r17, r15
+  ca:	01 f4       	brne	.+0      	; 0xcc <_ZN13MAX7219Driver4fillEh+0x5c>
+  cc:	28 96       	adiw	r28, 0x08	; 8
+  ce:	0f b6       	in	r0, 0x3f	; 63
+  d0:	f8 94       	cli
+  d2:	de bf       	out	0x3e, r29	; 62
+  d4:	0f be       	out	0x3f, r0	; 63
+  d6:	cd bf       	out	0x3d, r28	; 61
+  d8:	cf 91       	pop	r28
+  da:	df 91       	pop	r29
+  dc:	1f 91       	pop	r17
+  de:	0f 91       	pop	r16
+  e0:	ff 90       	pop	r15
+  e2:	ef 90       	pop	r14
+  e4:	df 90       	pop	r13
+  e6:	cf 90       	pop	r12
+  e8:	bf 90       	pop	r11
+  ea:	08 95       	ret
+
+000000ec <_ZN13MAX7219Driver11setTestModeEh>:
+  ec:	46 2f       	mov	r20, r22
+  ee:	6f e0       	ldi	r22, 0x0F	; 15
+  f0:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219Driver13createPackageEhh>
+  f4:	08 95       	ret
+
+000000f6 <_ZN13MAX7219Driver12setScanLimitEh>:
+  f6:	46 2f       	mov	r20, r22
+  f8:	6b e0       	ldi	r22, 0x0B	; 11
+  fa:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219Driver13createPackageEhh>
+  fe:	08 95       	ret
+
+00000100 <_ZN13MAX7219Driver19setDisplayIntensityEh>:
+ 100:	46 2f       	mov	r20, r22
+ 102:	6a e0       	ldi	r22, 0x0A	; 10
+ 104:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219Driver13createPackageEhh>
+ 108:	08 95       	ret
+
+0000010a <_ZN13MAX7219Driver13setDecodeModeEh>:
+ 10a:	46 2f       	mov	r20, r22
+ 10c:	69 e0       	ldi	r22, 0x09	; 9
+ 10e:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219Driver13createPackageEhh>
+ 112:	08 95       	ret
+
+00000114 <_ZN13MAX7219Driver11setShutdownEh>:
+ 114:	46 2f       	mov	r20, r22
+ 116:	6c e0       	ldi	r22, 0x0C	; 12
+ 118:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219Driver13createPackageEhh>
+ 11c:	08 95       	ret
+
+0000011e <_ZN13MAX7219DriverC1Ehhh>:
+ 11e:	0f 93       	push	r16
+ 120:	1f 93       	push	r17
+ 122:	fc 01       	movw	r30, r24
+ 124:	86 2f       	mov	r24, r22
+ 126:	14 2f       	mov	r17, r20
+ 128:	02 2f       	mov	r16, r18
+ 12a:	60 83       	st	Z, r22
+ 12c:	41 83       	std	Z+1, r20	; 0x01
+ 12e:	22 83       	std	Z+2, r18	; 0x02
+ 130:	61 e0       	ldi	r22, 0x01	; 1
+ 132:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219Driver13createPackageEhh>
+ 136:	81 2f       	mov	r24, r17
+ 138:	61 e0       	ldi	r22, 0x01	; 1
+ 13a:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219Driver13createPackageEhh>
+ 13e:	80 2f       	mov	r24, r16
+ 140:	61 e0       	ldi	r22, 0x01	; 1
+ 142:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219Driver13createPackageEhh>
+ 146:	1f 91       	pop	r17
+ 148:	0f 91       	pop	r16
+ 14a:	08 95       	ret
+
+0000014c <_ZN13MAX7219DriverC2Ehhh>:
+ 14c:	0f 93       	push	r16
+ 14e:	1f 93       	push	r17
+ 150:	fc 01       	movw	r30, r24
+ 152:	86 2f       	mov	r24, r22
+ 154:	14 2f       	mov	r17, r20
+ 156:	02 2f       	mov	r16, r18
+ 158:	60 83       	st	Z, r22
+ 15a:	41 83       	std	Z+1, r20	; 0x01
+ 15c:	22 83       	std	Z+2, r18	; 0x02
+ 15e:	61 e0       	ldi	r22, 0x01	; 1
+ 160:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219Driver13createPackageEhh>
+ 164:	81 2f       	mov	r24, r17
+ 166:	61 e0       	ldi	r22, 0x01	; 1
+ 168:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219Driver13createPackageEhh>
+ 16c:	80 2f       	mov	r24, r16
+ 16e:	61 e0       	ldi	r22, 0x01	; 1
+ 170:	0e 94 00 00 	call	0	; 0x0 <_ZN13MAX7219Driver13createPackageEhh>
+ 174:	1f 91       	pop	r17
+ 176:	0f 91       	pop	r16
+ 178:	08 95       	ret
 
 LEDMatrixDriverMAX7221.o:     file format elf32-avr
 
@@ -79,185 +217,474 @@ Idx Name          Size      VMA       LMA       File off  Algn
   2 .bss          00000000  00000000  00000000  00000034  2**0
                   ALLOC
 
-LEDMatrixDriverMAX7219.o:     file format elf32-avr
+LEDMatrixMAX7219Driver.o:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000000be  00000000  00000000  00000034  2**0
+  0 .text         000002f4  00000000  00000000  00000034  2**0
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
-  1 .data         00000020  00000000  00000000  000000f2  2**0
+  1 .data         0000002a  00000000  00000000  00000328  2**0
                   CONTENTS, ALLOC, LOAD, RELOC, DATA
-  2 .bss          00000000  00000000  00000000  00000112  2**0
+  2 .bss          00000000  00000000  00000000  00000352  2**0
                   ALLOC
 Disassembly of section .text:
 
-00000000 <_ZN22LEDMatrixDriverMAX72196setLedEhhh>:
-   0:	08 95       	ret
+00000000 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>:
+   0:	50 e0       	ldi	r21, 0x00	; 0
+   2:	21 e0       	ldi	r18, 0x01	; 1
+   4:	30 e0       	ldi	r19, 0x00	; 0
+   6:	00 c0       	rjmp	.+0      	; 0x8 <_ZN22LEDMatrixMAX7219Driver6getLedEhh+0x8>
+   8:	22 0f       	add	r18, r18
+   a:	33 1f       	adc	r19, r19
+   c:	6a 95       	dec	r22
+   e:	02 f4       	brpl	.+0      	; 0x10 <_ZN22LEDMatrixMAX7219Driver6getLedEhh+0x10>
+  10:	30 e0       	ldi	r19, 0x00	; 0
+  12:	fc 01       	movw	r30, r24
+  14:	e4 0f       	add	r30, r20
+  16:	f1 1d       	adc	r31, r1
+  18:	86 81       	ldd	r24, Z+6	; 0x06
+  1a:	90 e0       	ldi	r25, 0x00	; 0
+  1c:	28 23       	and	r18, r24
+  1e:	39 23       	and	r19, r25
+  20:	23 2b       	or	r18, r19
+  22:	01 f0       	breq	.+0      	; 0x24 <_ZN22LEDMatrixMAX7219Driver6getLedEhh+0x24>
+  24:	51 e0       	ldi	r21, 0x01	; 1
+  26:	85 2f       	mov	r24, r21
+  28:	08 95       	ret
 
-00000002 <_ZN22LEDMatrixDriverMAX72196setRowEhh>:
-   2:	08 95       	ret
+0000002a <_ZN22LEDMatrixMAX7219Driver6setColEhh>:
+  2a:	ff 92       	push	r15
+  2c:	0f 93       	push	r16
+  2e:	1f 93       	push	r17
+  30:	cf 93       	push	r28
+  32:	df 93       	push	r29
+  34:	ec 01       	movw	r28, r24
+  36:	06 2f       	mov	r16, r22
+  38:	f4 2e       	mov	r15, r20
+  3a:	e8 81       	ld	r30, Y
+  3c:	f9 81       	ldd	r31, Y+1	; 0x01
+  3e:	04 80       	ldd	r0, Z+4	; 0x04
+  40:	f5 81       	ldd	r31, Z+5	; 0x05
+  42:	e0 2d       	mov	r30, r0
+  44:	40 e0       	ldi	r20, 0x00	; 0
+  46:	09 95       	icall
+  48:	88 23       	and	r24, r24
+  4a:	01 f4       	brne	.+0      	; 0x4c <_ZN22LEDMatrixMAX7219Driver6setColEhh+0x22>
+  4c:	10 e0       	ldi	r17, 0x00	; 0
+  4e:	00 c0       	rjmp	.+0      	; 0x50 <_ZN22LEDMatrixMAX7219Driver6setColEhh+0x26>
+  50:	e8 81       	ld	r30, Y
+  52:	f9 81       	ldd	r31, Y+1	; 0x01
+  54:	00 84       	ldd	r0, Z+8	; 0x08
+  56:	f1 85       	ldd	r31, Z+9	; 0x09
+  58:	e0 2d       	mov	r30, r0
+  5a:	ce 01       	movw	r24, r28
+  5c:	60 2f       	mov	r22, r16
+  5e:	41 2f       	mov	r20, r17
+  60:	2f 2d       	mov	r18, r15
+  62:	09 95       	icall
+  64:	1f 5f       	subi	r17, 0xFF	; 255
+  66:	8b 81       	ldd	r24, Y+3	; 0x03
+  68:	18 17       	cp	r17, r24
+  6a:	00 f0       	brcs	.+0      	; 0x6c <_ZN22LEDMatrixMAX7219Driver6setColEhh+0x42>
+  6c:	df 91       	pop	r29
+  6e:	cf 91       	pop	r28
+  70:	1f 91       	pop	r17
+  72:	0f 91       	pop	r16
+  74:	ff 90       	pop	r15
+  76:	08 95       	ret
 
-00000004 <_ZN22LEDMatrixDriverMAX72196setColEhh>:
-   4:	08 95       	ret
+00000078 <_ZN22LEDMatrixMAX7219Driver8shiftLedEhhh>:
+  78:	ef 92       	push	r14
+  7a:	ff 92       	push	r15
+  7c:	0f 93       	push	r16
+  7e:	1f 93       	push	r17
+  80:	cf 93       	push	r28
+  82:	df 93       	push	r29
+  84:	ec 01       	movw	r28, r24
+  86:	16 2f       	mov	r17, r22
+  88:	04 2f       	mov	r16, r20
+  8a:	f2 2e       	mov	r15, r18
+  8c:	e8 81       	ld	r30, Y
+  8e:	f9 81       	ldd	r31, Y+1	; 0x01
+  90:	04 80       	ldd	r0, Z+4	; 0x04
+  92:	f5 81       	ldd	r31, Z+5	; 0x05
+  94:	e0 2d       	mov	r30, r0
+  96:	09 95       	icall
+  98:	88 23       	and	r24, r24
+  9a:	01 f0       	breq	.+0      	; 0x9c <_ZN22LEDMatrixMAX7219Driver8shiftLedEhhh+0x24>
+  9c:	00 c0       	rjmp	.+0      	; 0x9e <_ZN22LEDMatrixMAX7219Driver8shiftLedEhhh+0x26>
+  9e:	e8 81       	ld	r30, Y
+  a0:	f9 81       	ldd	r31, Y+1	; 0x01
+  a2:	06 80       	ldd	r0, Z+6	; 0x06
+  a4:	f7 81       	ldd	r31, Z+7	; 0x07
+  a6:	e0 2d       	mov	r30, r0
+  a8:	ce 01       	movw	r24, r28
+  aa:	61 2f       	mov	r22, r17
+  ac:	40 2f       	mov	r20, r16
+  ae:	09 95       	icall
+  b0:	e8 2e       	mov	r14, r24
+  b2:	e8 81       	ld	r30, Y
+  b4:	f9 81       	ldd	r31, Y+1	; 0x01
+  b6:	20 e0       	ldi	r18, 0x00	; 0
+  b8:	88 23       	and	r24, r24
+  ba:	01 f4       	brne	.+0      	; 0xbc <_ZN22LEDMatrixMAX7219Driver8shiftLedEhhh+0x44>
+  bc:	21 e0       	ldi	r18, 0x01	; 1
+  be:	00 84       	ldd	r0, Z+8	; 0x08
+  c0:	f1 85       	ldd	r31, Z+9	; 0x09
+  c2:	e0 2d       	mov	r30, r0
+  c4:	ce 01       	movw	r24, r28
+  c6:	61 2f       	mov	r22, r17
+  c8:	40 2f       	mov	r20, r16
+  ca:	09 95       	icall
+  cc:	81 e0       	ldi	r24, 0x01	; 1
+  ce:	f8 16       	cp	r15, r24
+  d0:	01 f0       	breq	.+0      	; 0xd2 <_ZN22LEDMatrixMAX7219Driver8shiftLedEhhh+0x5a>
+  d2:	f8 16       	cp	r15, r24
+  d4:	00 f0       	brcs	.+0      	; 0xd6 <_ZN22LEDMatrixMAX7219Driver8shiftLedEhhh+0x5e>
+  d6:	82 e0       	ldi	r24, 0x02	; 2
+  d8:	f8 16       	cp	r15, r24
+  da:	01 f0       	breq	.+0      	; 0xdc <_ZN22LEDMatrixMAX7219Driver8shiftLedEhhh+0x64>
+  dc:	83 e0       	ldi	r24, 0x03	; 3
+  de:	f8 16       	cp	r15, r24
+  e0:	01 f4       	brne	.+0      	; 0xe2 <_ZN22LEDMatrixMAX7219Driver8shiftLedEhhh+0x6a>
+  e2:	00 c0       	rjmp	.+0      	; 0xe4 <_ZN22LEDMatrixMAX7219Driver8shiftLedEhhh+0x6c>
+  e4:	11 50       	subi	r17, 0x01	; 1
+  e6:	00 c0       	rjmp	.+0      	; 0xe8 <_ZN22LEDMatrixMAX7219Driver8shiftLedEhhh+0x70>
+  e8:	1f 5f       	subi	r17, 0xFF	; 255
+  ea:	00 c0       	rjmp	.+0      	; 0xec <_ZN22LEDMatrixMAX7219Driver8shiftLedEhhh+0x74>
+  ec:	01 50       	subi	r16, 0x01	; 1
+  ee:	00 c0       	rjmp	.+0      	; 0xf0 <_ZN22LEDMatrixMAX7219Driver8shiftLedEhhh+0x78>
+  f0:	0f 5f       	subi	r16, 0xFF	; 255
+  f2:	e8 81       	ld	r30, Y
+  f4:	f9 81       	ldd	r31, Y+1	; 0x01
+  f6:	6a 81       	ldd	r22, Y+2	; 0x02
+  f8:	81 2f       	mov	r24, r17
+  fa:	90 e0       	ldi	r25, 0x00	; 0
+  fc:	70 e0       	ldi	r23, 0x00	; 0
+  fe:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>
+ 102:	38 2f       	mov	r19, r24
+ 104:	6b 81       	ldd	r22, Y+3	; 0x03
+ 106:	80 2f       	mov	r24, r16
+ 108:	90 e0       	ldi	r25, 0x00	; 0
+ 10a:	70 e0       	ldi	r23, 0x00	; 0
+ 10c:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>
+ 110:	48 2f       	mov	r20, r24
+ 112:	20 e0       	ldi	r18, 0x00	; 0
+ 114:	e1 10       	cpse	r14, r1
+ 116:	21 e0       	ldi	r18, 0x01	; 1
+ 118:	00 84       	ldd	r0, Z+8	; 0x08
+ 11a:	f1 85       	ldd	r31, Z+9	; 0x09
+ 11c:	e0 2d       	mov	r30, r0
+ 11e:	ce 01       	movw	r24, r28
+ 120:	63 2f       	mov	r22, r19
+ 122:	09 95       	icall
+ 124:	df 91       	pop	r29
+ 126:	cf 91       	pop	r28
+ 128:	1f 91       	pop	r17
+ 12a:	0f 91       	pop	r16
+ 12c:	ff 90       	pop	r15
+ 12e:	ef 90       	pop	r14
+ 130:	08 95       	ret
 
-00000006 <_ZN22LEDMatrixDriverMAX72198shiftLedEhhh>:
-   6:	08 95       	ret
+00000132 <_ZN22LEDMatrixMAX7219Driver8shiftRowEhh>:
+ 132:	08 95       	ret
 
-00000008 <_ZN22LEDMatrixDriverMAX72198shiftRowEhh>:
-   8:	08 95       	ret
+00000134 <_ZN22LEDMatrixMAX7219Driver10switchLedsEhhhh>:
+ 134:	08 95       	ret
 
-0000000a <_ZN22LEDMatrixDriverMAX721910switchLedsEhhhh>:
-   a:	08 95       	ret
+00000136 <_ZN22LEDMatrixMAX7219Driver10switchColsEhh>:
+ 136:	08 95       	ret
 
-0000000c <_ZN22LEDMatrixDriverMAX721910switchColsEhh>:
-   c:	08 95       	ret
+00000138 <_ZN22LEDMatrixMAX7219Driver10switchRowsEhh>:
+ 138:	08 95       	ret
 
-0000000e <_ZN22LEDMatrixDriverMAX721910switchRowsEhh>:
-   e:	08 95       	ret
+0000013a <_ZN22LEDMatrixMAX7219Driver9invertLedEhh>:
+ 13a:	08 95       	ret
 
-00000010 <_ZN22LEDMatrixDriverMAX72199invertLedEhh>:
-  10:	08 95       	ret
+0000013c <_ZN22LEDMatrixMAX7219Driver10invertColsEh>:
+ 13c:	08 95       	ret
 
-00000012 <_ZN22LEDMatrixDriverMAX72199invertColEh>:
-  12:	08 95       	ret
+0000013e <_ZN22LEDMatrixMAX7219Driver10invertRowsEh>:
+ 13e:	08 95       	ret
 
-00000014 <_ZN22LEDMatrixDriverMAX721910invertRowsEh>:
-  14:	08 95       	ret
+00000140 <_ZN22LEDMatrixMAX7219DriverD1Ev>:
+ 140:	fc 01       	movw	r30, r24
+ 142:	80 e0       	ldi	r24, 0x00	; 0
+ 144:	90 e0       	ldi	r25, 0x00	; 0
+ 146:	91 83       	std	Z+1, r25	; 0x01
+ 148:	80 83       	st	Z, r24
+ 14a:	cf 01       	movw	r24, r30
+ 14c:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>
+ 150:	08 95       	ret
 
-00000016 <_ZN22LEDMatrixDriverMAX721911sendPackageEj>:
-  16:	08 95       	ret
+00000152 <_ZN22LEDMatrixMAX7219DriverD0Ev>:
+ 152:	0f 93       	push	r16
+ 154:	1f 93       	push	r17
+ 156:	8c 01       	movw	r16, r24
+ 158:	80 e0       	ldi	r24, 0x00	; 0
+ 15a:	90 e0       	ldi	r25, 0x00	; 0
+ 15c:	f8 01       	movw	r30, r16
+ 15e:	91 83       	std	Z+1, r25	; 0x01
+ 160:	80 83       	st	Z, r24
+ 162:	c8 01       	movw	r24, r16
+ 164:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>
+ 168:	c8 01       	movw	r24, r16
+ 16a:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>
+ 16e:	1f 91       	pop	r17
+ 170:	0f 91       	pop	r16
+ 172:	08 95       	ret
 
-00000018 <_ZN22LEDMatrixDriverMAX721913createPackageEhh>:
-  18:	94 2f       	mov	r25, r20
-  1a:	80 e0       	ldi	r24, 0x00	; 0
-  1c:	70 e0       	ldi	r23, 0x00	; 0
-  1e:	68 2b       	or	r22, r24
-  20:	79 2b       	or	r23, r25
-  22:	cb 01       	movw	r24, r22
-  24:	08 95       	ret
+00000174 <_ZN22LEDMatrixMAX7219Driver6setRowEhh>:
+ 174:	0f 93       	push	r16
+ 176:	1f 93       	push	r17
+ 178:	cf 93       	push	r28
+ 17a:	df 93       	push	r29
+ 17c:	ec 01       	movw	r28, r24
+ 17e:	16 2f       	mov	r17, r22
+ 180:	04 2f       	mov	r16, r20
+ 182:	e8 81       	ld	r30, Y
+ 184:	f9 81       	ldd	r31, Y+1	; 0x01
+ 186:	04 80       	ldd	r0, Z+4	; 0x04
+ 188:	f5 81       	ldd	r31, Z+5	; 0x05
+ 18a:	e0 2d       	mov	r30, r0
+ 18c:	60 e0       	ldi	r22, 0x00	; 0
+ 18e:	41 2f       	mov	r20, r17
+ 190:	09 95       	icall
+ 192:	88 23       	and	r24, r24
+ 194:	01 f4       	brne	.+0      	; 0x196 <_ZN22LEDMatrixMAX7219Driver6setRowEhh+0x22>
+ 196:	fe 01       	movw	r30, r28
+ 198:	e1 0f       	add	r30, r17
+ 19a:	f1 1d       	adc	r31, r1
+ 19c:	06 83       	std	Z+6, r16	; 0x06
+ 19e:	8c 81       	ldd	r24, Y+4	; 0x04
+ 1a0:	9d 81       	ldd	r25, Y+5	; 0x05
+ 1a2:	61 e0       	ldi	r22, 0x01	; 1
+ 1a4:	4f ef       	ldi	r20, 0xFF	; 255
+ 1a6:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>
+ 1aa:	df 91       	pop	r29
+ 1ac:	cf 91       	pop	r28
+ 1ae:	1f 91       	pop	r17
+ 1b0:	0f 91       	pop	r16
+ 1b2:	08 95       	ret
 
-00000026 <_ZN22LEDMatrixDriverMAX7219D1Ev>:
-  26:	fc 01       	movw	r30, r24
-  28:	80 e0       	ldi	r24, 0x00	; 0
-  2a:	90 e0       	ldi	r25, 0x00	; 0
-  2c:	91 83       	std	Z+1, r25	; 0x01
-  2e:	80 83       	st	Z, r24
-  30:	cf 01       	movw	r24, r30
-  32:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixDriverMAX72196setLedEhhh>
-  36:	08 95       	ret
+000001b4 <_ZN22LEDMatrixMAX7219Driver6setLedEhhh>:
+ 1b4:	ff 92       	push	r15
+ 1b6:	0f 93       	push	r16
+ 1b8:	1f 93       	push	r17
+ 1ba:	cf 93       	push	r28
+ 1bc:	df 93       	push	r29
+ 1be:	ec 01       	movw	r28, r24
+ 1c0:	06 2f       	mov	r16, r22
+ 1c2:	14 2f       	mov	r17, r20
+ 1c4:	f2 2e       	mov	r15, r18
+ 1c6:	e8 81       	ld	r30, Y
+ 1c8:	f9 81       	ldd	r31, Y+1	; 0x01
+ 1ca:	04 80       	ldd	r0, Z+4	; 0x04
+ 1cc:	f5 81       	ldd	r31, Z+5	; 0x05
+ 1ce:	e0 2d       	mov	r30, r0
+ 1d0:	09 95       	icall
+ 1d2:	88 23       	and	r24, r24
+ 1d4:	01 f4       	brne	.+0      	; 0x1d6 <_ZN22LEDMatrixMAX7219Driver6setLedEhhh+0x22>
+ 1d6:	a1 2f       	mov	r26, r17
+ 1d8:	b0 e0       	ldi	r27, 0x00	; 0
+ 1da:	fe 01       	movw	r30, r28
+ 1dc:	ea 0f       	add	r30, r26
+ 1de:	fb 1f       	adc	r31, r27
+ 1e0:	26 81       	ldd	r18, Z+6	; 0x06
+ 1e2:	81 e0       	ldi	r24, 0x01	; 1
+ 1e4:	90 e0       	ldi	r25, 0x00	; 0
+ 1e6:	00 c0       	rjmp	.+0      	; 0x1e8 <_ZN22LEDMatrixMAX7219Driver6setLedEhhh+0x34>
+ 1e8:	88 0f       	add	r24, r24
+ 1ea:	99 1f       	adc	r25, r25
+ 1ec:	0a 95       	dec	r16
+ 1ee:	02 f4       	brpl	.+0      	; 0x1f0 <_ZN22LEDMatrixMAX7219Driver6setLedEhhh+0x3c>
+ 1f0:	48 2f       	mov	r20, r24
+ 1f2:	ff 20       	and	r15, r15
+ 1f4:	01 f0       	breq	.+0      	; 0x1f6 <_ZN22LEDMatrixMAX7219Driver6setLedEhhh+0x42>
+ 1f6:	42 2b       	or	r20, r18
+ 1f8:	00 c0       	rjmp	.+0      	; 0x1fa <_ZN22LEDMatrixMAX7219Driver6setLedEhhh+0x46>
+ 1fa:	40 95       	com	r20
+ 1fc:	42 23       	and	r20, r18
+ 1fe:	fe 01       	movw	r30, r28
+ 200:	ea 0f       	add	r30, r26
+ 202:	fb 1f       	adc	r31, r27
+ 204:	46 83       	std	Z+6, r20	; 0x06
+ 206:	a0 50       	subi	r26, 0x00	; 0
+ 208:	b0 40       	sbci	r27, 0x00	; 0
+ 20a:	8c 81       	ldd	r24, Y+4	; 0x04
+ 20c:	9d 81       	ldd	r25, Y+5	; 0x05
+ 20e:	6c 91       	ld	r22, X
+ 210:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>
+ 214:	df 91       	pop	r29
+ 216:	cf 91       	pop	r28
+ 218:	1f 91       	pop	r17
+ 21a:	0f 91       	pop	r16
+ 21c:	ff 90       	pop	r15
+ 21e:	08 95       	ret
 
-00000038 <_ZN22LEDMatrixDriverMAX7219D0Ev>:
-  38:	0f 93       	push	r16
-  3a:	1f 93       	push	r17
-  3c:	8c 01       	movw	r16, r24
-  3e:	80 e0       	ldi	r24, 0x00	; 0
-  40:	90 e0       	ldi	r25, 0x00	; 0
-  42:	f8 01       	movw	r30, r16
-  44:	91 83       	std	Z+1, r25	; 0x01
-  46:	80 83       	st	Z, r24
-  48:	c8 01       	movw	r24, r16
-  4a:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixDriverMAX72196setLedEhhh>
-  4e:	c8 01       	movw	r24, r16
-  50:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixDriverMAX72196setLedEhhh>
-  54:	1f 91       	pop	r17
-  56:	0f 91       	pop	r16
-  58:	08 95       	ret
+00000220 <_ZN22LEDMatrixMAX7219DriverC1EP13MAX7219Driverhh>:
+ 220:	ef 92       	push	r14
+ 222:	ff 92       	push	r15
+ 224:	0f 93       	push	r16
+ 226:	1f 93       	push	r17
+ 228:	7c 01       	movw	r14, r24
+ 22a:	8b 01       	movw	r16, r22
+ 22c:	64 2f       	mov	r22, r20
+ 22e:	42 2f       	mov	r20, r18
+ 230:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>
+ 234:	80 e0       	ldi	r24, 0x00	; 0
+ 236:	90 e0       	ldi	r25, 0x00	; 0
+ 238:	f7 01       	movw	r30, r14
+ 23a:	91 83       	std	Z+1, r25	; 0x01
+ 23c:	80 83       	st	Z, r24
+ 23e:	15 83       	std	Z+5, r17	; 0x05
+ 240:	04 83       	std	Z+4, r16	; 0x04
+ 242:	c8 01       	movw	r24, r16
+ 244:	60 e0       	ldi	r22, 0x00	; 0
+ 246:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>
+ 24a:	c8 01       	movw	r24, r16
+ 24c:	67 e0       	ldi	r22, 0x07	; 7
+ 24e:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>
+ 252:	c8 01       	movw	r24, r16
+ 254:	6f ef       	ldi	r22, 0xFF	; 255
+ 256:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>
+ 25a:	c8 01       	movw	r24, r16
+ 25c:	60 e0       	ldi	r22, 0x00	; 0
+ 25e:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>
+ 262:	c8 01       	movw	r24, r16
+ 264:	61 e0       	ldi	r22, 0x01	; 1
+ 266:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>
+ 26a:	c8 01       	movw	r24, r16
+ 26c:	60 e0       	ldi	r22, 0x00	; 0
+ 26e:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>
+ 272:	f7 01       	movw	r30, r14
+ 274:	80 e0       	ldi	r24, 0x00	; 0
+ 276:	16 82       	std	Z+6, r1	; 0x06
+ 278:	8f 5f       	subi	r24, 0xFF	; 255
+ 27a:	31 96       	adiw	r30, 0x01	; 1
+ 27c:	88 30       	cpi	r24, 0x08	; 8
+ 27e:	01 f4       	brne	.+0      	; 0x280 <_ZN22LEDMatrixMAX7219DriverC1EP13MAX7219Driverhh+0x60>
+ 280:	1f 91       	pop	r17
+ 282:	0f 91       	pop	r16
+ 284:	ff 90       	pop	r15
+ 286:	ef 90       	pop	r14
+ 288:	08 95       	ret
 
-0000005a <_ZN22LEDMatrixDriverMAX7219C1Ehhhhh>:
-  5a:	cf 92       	push	r12
-  5c:	df 92       	push	r13
-  5e:	ef 92       	push	r14
-  60:	0f 93       	push	r16
-  62:	1f 93       	push	r17
-  64:	6c 01       	movw	r12, r24
-  66:	12 2f       	mov	r17, r18
-  68:	68 e0       	ldi	r22, 0x08	; 8
-  6a:	48 e0       	ldi	r20, 0x08	; 8
-  6c:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixDriverMAX72196setLedEhhh>
-  70:	80 e0       	ldi	r24, 0x00	; 0
-  72:	90 e0       	ldi	r25, 0x00	; 0
-  74:	f6 01       	movw	r30, r12
-  76:	91 83       	std	Z+1, r25	; 0x01
-  78:	80 83       	st	Z, r24
-  7a:	14 83       	std	Z+4, r17	; 0x04
-  7c:	05 83       	std	Z+5, r16	; 0x05
-  7e:	e6 82       	std	Z+6, r14	; 0x06
-  80:	1f 91       	pop	r17
-  82:	0f 91       	pop	r16
-  84:	ef 90       	pop	r14
-  86:	df 90       	pop	r13
-  88:	cf 90       	pop	r12
-  8a:	08 95       	ret
-
-0000008c <_ZN22LEDMatrixDriverMAX7219C2Ehhhhh>:
-  8c:	cf 92       	push	r12
-  8e:	df 92       	push	r13
-  90:	ef 92       	push	r14
-  92:	0f 93       	push	r16
-  94:	1f 93       	push	r17
-  96:	6c 01       	movw	r12, r24
-  98:	12 2f       	mov	r17, r18
-  9a:	68 e0       	ldi	r22, 0x08	; 8
-  9c:	48 e0       	ldi	r20, 0x08	; 8
-  9e:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixDriverMAX72196setLedEhhh>
-  a2:	80 e0       	ldi	r24, 0x00	; 0
-  a4:	90 e0       	ldi	r25, 0x00	; 0
-  a6:	f6 01       	movw	r30, r12
-  a8:	91 83       	std	Z+1, r25	; 0x01
-  aa:	80 83       	st	Z, r24
-  ac:	14 83       	std	Z+4, r17	; 0x04
-  ae:	05 83       	std	Z+5, r16	; 0x05
-  b0:	e6 82       	std	Z+6, r14	; 0x06
-  b2:	1f 91       	pop	r17
-  b4:	0f 91       	pop	r16
-  b6:	ef 90       	pop	r14
-  b8:	df 90       	pop	r13
-  ba:	cf 90       	pop	r12
-  bc:	08 95       	ret
+0000028a <_ZN22LEDMatrixMAX7219DriverC2EP13MAX7219Driverhh>:
+ 28a:	ef 92       	push	r14
+ 28c:	ff 92       	push	r15
+ 28e:	0f 93       	push	r16
+ 290:	1f 93       	push	r17
+ 292:	7c 01       	movw	r14, r24
+ 294:	8b 01       	movw	r16, r22
+ 296:	64 2f       	mov	r22, r20
+ 298:	42 2f       	mov	r20, r18
+ 29a:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>
+ 29e:	80 e0       	ldi	r24, 0x00	; 0
+ 2a0:	90 e0       	ldi	r25, 0x00	; 0
+ 2a2:	f7 01       	movw	r30, r14
+ 2a4:	91 83       	std	Z+1, r25	; 0x01
+ 2a6:	80 83       	st	Z, r24
+ 2a8:	15 83       	std	Z+5, r17	; 0x05
+ 2aa:	04 83       	std	Z+4, r16	; 0x04
+ 2ac:	c8 01       	movw	r24, r16
+ 2ae:	60 e0       	ldi	r22, 0x00	; 0
+ 2b0:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>
+ 2b4:	c8 01       	movw	r24, r16
+ 2b6:	67 e0       	ldi	r22, 0x07	; 7
+ 2b8:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>
+ 2bc:	c8 01       	movw	r24, r16
+ 2be:	6f ef       	ldi	r22, 0xFF	; 255
+ 2c0:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>
+ 2c4:	c8 01       	movw	r24, r16
+ 2c6:	60 e0       	ldi	r22, 0x00	; 0
+ 2c8:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>
+ 2cc:	c8 01       	movw	r24, r16
+ 2ce:	61 e0       	ldi	r22, 0x01	; 1
+ 2d0:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>
+ 2d4:	c8 01       	movw	r24, r16
+ 2d6:	60 e0       	ldi	r22, 0x00	; 0
+ 2d8:	0e 94 00 00 	call	0	; 0x0 <_ZN22LEDMatrixMAX7219Driver6getLedEhh>
+ 2dc:	f7 01       	movw	r30, r14
+ 2de:	80 e0       	ldi	r24, 0x00	; 0
+ 2e0:	16 82       	std	Z+6, r1	; 0x06
+ 2e2:	8f 5f       	subi	r24, 0xFF	; 255
+ 2e4:	31 96       	adiw	r30, 0x01	; 1
+ 2e6:	88 30       	cpi	r24, 0x08	; 8
+ 2e8:	01 f4       	brne	.+0      	; 0x2ea <_ZN22LEDMatrixMAX7219DriverC2EP13MAX7219Driverhh+0x60>
+ 2ea:	1f 91       	pop	r17
+ 2ec:	0f 91       	pop	r16
+ 2ee:	ff 90       	pop	r15
+ 2f0:	ef 90       	pop	r14
+ 2f2:	08 95       	ret
 
 LEDMatrixDriver.o:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         0000003a  00000000  00000000  00000034  2**0
+  0 .text         00000060  00000000  00000000  00000034  2**0
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
-  1 .data         00000020  00000000  00000000  0000006e  2**0
+  1 .data         00000022  00000000  00000000  00000094  2**0
                   CONTENTS, ALLOC, LOAD, RELOC, DATA
-  2 .bss          00000000  00000000  00000000  0000008e  2**0
+  2 .bss          00000000  00000000  00000000  000000b6  2**0
                   ALLOC
 Disassembly of section .text:
 
-00000000 <_ZN15LEDMatrixDriverC2Ehh>:
+00000000 <_ZN15LEDMatrixDriverD2Ev>:
    0:	fc 01       	movw	r30, r24
    2:	80 e0       	ldi	r24, 0x00	; 0
    4:	90 e0       	ldi	r25, 0x00	; 0
    6:	91 83       	std	Z+1, r25	; 0x01
    8:	80 83       	st	Z, r24
-   a:	62 83       	std	Z+2, r22	; 0x02
-   c:	43 83       	std	Z+3, r20	; 0x03
-   e:	08 95       	ret
+   a:	08 95       	ret
 
-00000010 <_ZN15LEDMatrixDriverC1Ehh>:
-  10:	fc 01       	movw	r30, r24
-  12:	80 e0       	ldi	r24, 0x00	; 0
-  14:	90 e0       	ldi	r25, 0x00	; 0
-  16:	91 83       	std	Z+1, r25	; 0x01
-  18:	80 83       	st	Z, r24
-  1a:	62 83       	std	Z+2, r22	; 0x02
-  1c:	43 83       	std	Z+3, r20	; 0x03
-  1e:	08 95       	ret
+0000000c <_ZN15LEDMatrixDriverD1Ev>:
+   c:	fc 01       	movw	r30, r24
+   e:	80 e0       	ldi	r24, 0x00	; 0
+  10:	90 e0       	ldi	r25, 0x00	; 0
+  12:	91 83       	std	Z+1, r25	; 0x01
+  14:	80 83       	st	Z, r24
+  16:	08 95       	ret
 
-00000020 <_ZN15LEDMatrixDriver13isOutOfBoundsEhh>:
-  20:	fc 01       	movw	r30, r24
-  22:	82 81       	ldd	r24, Z+2	; 0x02
-  24:	68 17       	cp	r22, r24
-  26:	00 f0       	brcs	.+0      	; 0x28 <_ZN15LEDMatrixDriver13isOutOfBoundsEhh+0x8>
-  28:	20 e0       	ldi	r18, 0x00	; 0
-  2a:	00 c0       	rjmp	.+0      	; 0x2c <_ZN15LEDMatrixDriver13isOutOfBoundsEhh+0xc>
-  2c:	20 e0       	ldi	r18, 0x00	; 0
-  2e:	83 81       	ldd	r24, Z+3	; 0x03
-  30:	48 17       	cp	r20, r24
-  32:	00 f4       	brcc	.+0      	; 0x34 <_ZN15LEDMatrixDriver13isOutOfBoundsEhh+0x14>
-  34:	21 e0       	ldi	r18, 0x01	; 1
-  36:	82 2f       	mov	r24, r18
-  38:	08 95       	ret
+00000018 <_ZN15LEDMatrixDriverC2Ehh>:
+  18:	fc 01       	movw	r30, r24
+  1a:	80 e0       	ldi	r24, 0x00	; 0
+  1c:	90 e0       	ldi	r25, 0x00	; 0
+  1e:	91 83       	std	Z+1, r25	; 0x01
+  20:	80 83       	st	Z, r24
+  22:	62 83       	std	Z+2, r22	; 0x02
+  24:	43 83       	std	Z+3, r20	; 0x03
+  26:	08 95       	ret
+
+00000028 <_ZN15LEDMatrixDriverC1Ehh>:
+  28:	fc 01       	movw	r30, r24
+  2a:	80 e0       	ldi	r24, 0x00	; 0
+  2c:	90 e0       	ldi	r25, 0x00	; 0
+  2e:	91 83       	std	Z+1, r25	; 0x01
+  30:	80 83       	st	Z, r24
+  32:	62 83       	std	Z+2, r22	; 0x02
+  34:	43 83       	std	Z+3, r20	; 0x03
+  36:	08 95       	ret
+
+00000038 <_ZN15LEDMatrixDriver13isOutOfBoundsEhh>:
+  38:	fc 01       	movw	r30, r24
+  3a:	82 81       	ldd	r24, Z+2	; 0x02
+  3c:	68 17       	cp	r22, r24
+  3e:	00 f4       	brcc	.+0      	; 0x40 <_ZN15LEDMatrixDriver13isOutOfBoundsEhh+0x8>
+  40:	20 e0       	ldi	r18, 0x00	; 0
+  42:	83 81       	ldd	r24, Z+3	; 0x03
+  44:	48 17       	cp	r20, r24
+  46:	00 f0       	brcs	.+0      	; 0x48 <_ZN15LEDMatrixDriver13isOutOfBoundsEhh+0x10>
+  48:	21 e0       	ldi	r18, 0x01	; 1
+  4a:	82 2f       	mov	r24, r18
+  4c:	08 95       	ret
+
+0000004e <_ZN15LEDMatrixDriverD0Ev>:
+  4e:	fc 01       	movw	r30, r24
+  50:	80 e0       	ldi	r24, 0x00	; 0
+  52:	90 e0       	ldi	r25, 0x00	; 0
+  54:	91 83       	std	Z+1, r25	; 0x01
+  56:	80 83       	st	Z, r24
+  58:	cf 01       	movw	r24, r30
+  5a:	0e 94 00 00 	call	0	; 0x0 <_ZN15LEDMatrixDriverD2Ev>
+  5e:	08 95       	ret
