@@ -26,11 +26,11 @@ class LedMatrixMAX7219Driver : public LedMatrixDriver {
 
 public:
 
-    ~LedMatrixMAX7219Driver() {
-    }
-
     LedMatrixMAX7219Driver(MAX7219Driver *driver, unsigned char cols,
             unsigned char rows);
+
+    ~LedMatrixMAX7219Driver() {
+    }
 
     /**
      *

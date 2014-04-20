@@ -30,7 +30,7 @@ SIZEDUMMY :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 MAX7219Driver \
-LEDMatrixMAX7221Driver \
-LEDMatrixMAX7219Driver \
-LEDMatrixDriver \
+LedMatrixMAX7221Driver \
+LedMatrixMAX7219Driver \
+LedMatrixDriver \
 

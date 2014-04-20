@@ -1,9 +1,9 @@
-LEDMatrixMAX7219Driver/LEDMatrixMAX7219Driver.d \
-  LEDMatrixMAX7219Driver/LEDMatrixMAX7219Driver.o:  \
- ../LEDMatrixMAX7219Driver/LEDMatrixMAX7219Driver.cpp \
-  ../LEDMatrixMAX7219Driver/LEDMatrixMAX7219Driver.h \
-  /storage/microcontroller/arduino/driver/led/ArduinoLEDMatrixDriver/LEDMatrixDriver/LEDMatrixDriver.h \
-  /storage/microcontroller/arduino/driver/led/ArduinoLEDMatrixDriver/MAX7219Driver/MAX7219Driver.h \
+LedMatrixMAX7219Driver/LedMatrixMAX7219Driver.d \
+  LedMatrixMAX7219Driver/LedMatrixMAX7219Driver.o:  \
+ ../LedMatrixMAX7219Driver/LedMatrixMAX7219Driver.cpp \
+  ../LedMatrixMAX7219Driver/LedMatrixMAX7219Driver.h \
+  /storage/microcontroller/arduino/driver/led/ArduinoLedMatrixDriver/LedMatrixDriver/LedMatrixDriver.h \
+  /storage/microcontroller/arduino/driver/led/ArduinoLedMatrixDriver/MAX7219Driver/MAX7219Driver.h \
   /usr/share/arduino/hardware/arduino/cores/arduino/Arduino.h \
   /usr/share/arduino/hardware/arduino/cores/arduino/binary.h \
   /usr/share/arduino/hardware/arduino/cores/arduino/WCharacter.h \
@@ -15,11 +15,11 @@ LEDMatrixMAX7219Driver/LEDMatrixMAX7219Driver.d \
   /usr/share/arduino/hardware/arduino/cores/arduino/new.h \
   /usr/share/arduino/hardware/arduino/variants/standard/pins_arduino.h
 
-../LEDMatrixMAX7219Driver/LEDMatrixMAX7219Driver.h:
+../LedMatrixMAX7219Driver/LedMatrixMAX7219Driver.h:
 
-/storage/microcontroller/arduino/driver/led/ArduinoLEDMatrixDriver/LEDMatrixDriver/LEDMatrixDriver.h:
+/storage/microcontroller/arduino/driver/led/ArduinoLedMatrixDriver/LedMatrixDriver/LedMatrixDriver.h:
 
-/storage/microcontroller/arduino/driver/led/ArduinoLEDMatrixDriver/MAX7219Driver/MAX7219Driver.h:
+/storage/microcontroller/arduino/driver/led/ArduinoLedMatrixDriver/MAX7219Driver/MAX7219Driver.h:
 
 /usr/share/arduino/hardware/arduino/cores/arduino/Arduino.h:
 

@@ -9,9 +9,9 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include MAX7219Driver/subdir.mk
--include LEDMatrixMAX7221Driver/subdir.mk
--include LEDMatrixMAX7219Driver/subdir.mk
--include LEDMatrixDriver/subdir.mk
+-include LedMatrixMAX7221Driver/subdir.mk
+-include LedMatrixMAX7219Driver/subdir.mk
+-include LedMatrixDriver/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -49,38 +49,38 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 LSS += \
-libArduinoLEDMatrixDriver.lss \
+libArduinoLedMatrixDriver.lss \
 
 SIZEDUMMY += \
 sizedummy \
 
 
 # All Target
-all: libArduinoLEDMatrixDriver.a secondary-outputs
+all: libArduinoLedMatrixDriver.a secondary-outputs
 
 # Tool invocations
-libArduinoLEDMatrixDriver.a: $(OBJS)
+libArduinoLedMatrixDriver.a: $(OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR Archiver'
-	avr-ar -r  "libArduinoLEDMatrixDriver.a" $(OBJS) $(LIBS)
+	avr-ar -r  "libArduinoLedMatrixDriver.a" $(OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-libArduinoLEDMatrixDriver.lss: libArduinoLEDMatrixDriver.a
+libArduinoLedMatrixDriver.lss: libArduinoLedMatrixDriver.a
 	@echo 'Invoking: AVR Create Extended Listing'
-	-avr-objdump -h -S libArduinoLEDMatrixDriver.a  >"libArduinoLEDMatrixDriver.lss"
+	-avr-objdump -h -S libArduinoLedMatrixDriver.a  >"libArduinoLedMatrixDriver.lss"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-sizedummy: libArduinoLEDMatrixDriver.a
+sizedummy: libArduinoLedMatrixDriver.a
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega328p libArduinoLEDMatrixDriver.a
+	-avr-size --format=avr --mcu=atmega328p libArduinoLedMatrixDriver.a
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(OBJS)$(C_DEPS)$(LSS)$(S_DEPS)$(CXX_DEPS)$(S_UPPER_DEPS)$(C++_DEPS)$(ASM_DEPS)$(CC_DEPS)$(ARCHIVES)$(CPP_DEPS)$(C_UPPER_DEPS)$(SIZEDUMMY) libArduinoLEDMatrixDriver.a
+	-$(RM) $(OBJS)$(C_DEPS)$(LSS)$(S_DEPS)$(CXX_DEPS)$(S_UPPER_DEPS)$(C++_DEPS)$(ASM_DEPS)$(CC_DEPS)$(ARCHIVES)$(CPP_DEPS)$(C_UPPER_DEPS)$(SIZEDUMMY) libArduinoLedMatrixDriver.a
 	-@echo ' '
 
 secondary-outputs: $(LSS) $(SIZEDUMMY)
