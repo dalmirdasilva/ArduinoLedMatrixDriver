@@ -77,6 +77,11 @@ public:
     /**
      *
      */
+    virtual void shiftCol(unsigned char col, unsigned char direction);
+
+    /**
+     *
+     */
     virtual void switchLeds(unsigned char colFrom, unsigned char rowFrom,
             unsigned char colTo, unsigned char rowTo);
 

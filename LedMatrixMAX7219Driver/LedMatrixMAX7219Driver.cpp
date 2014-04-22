@@ -35,11 +35,12 @@ void LedMatrixMAX7219Driver::fill() {
     driver->fill(0xff);
 }
 
-unsigned char LedMatrixMAX7219Driver::getLed(unsigned char col, unsigned char row) {
+unsigned char LedMatrixMAX7219Driver::getLed(unsigned char col,
+        unsigned char row) {
     unsigned char entry, mask;
     entry = matrixData[col];
     mask = 0x01 << row;
-    return (entry & mask) ? 0x01 : 0x00;
+    return (entry & mask) ? LedMatrixDriver::ON : LedMatrixDriver::OFF;
 }
 
 /**
@@ -81,33 +82,52 @@ void LedMatrixMAX7219Driver::shiftLed(unsigned char col, unsigned char row,
     unsigned char led;
     if (!isOutOfBounds(col, row)) {
         led = getLed(col, row);
-        setLed(col, row, (led ? 0x00 : 0x01));
-        switch (direction) {
-            case LEFT:
-                col--;
-                break;
-            case RIGHT:
-                col++;
-                break;
-            case UP:
-                row++;
-                break;
-            case DOWN:
-                row--;
-                break;
+        setLed(col, row, (led ? LedMatrixDriver::OFF : LedMatrixDriver::ON));
+        if (direction == LEFT) {
+            col--;
+        } else if (direction == RIGHT) {
+            col++;
+        } else if (direction == UP) {
+            row++;
+        } else {
+            row--;
         }
-        setLed((col % cols), (row % rows), (led ? 0x01 : 0x00));
+        setLed((col % cols), (row % rows), (
+                led ? LedMatrixDriver::ON : LedMatrixDriver::OFF));
     }
 }
 
 void LedMatrixMAX7219Driver::shiftRow(unsigned char row,
         unsigned char direction) {
+    if (!isOutOfBounds(0, row)) {
+        for (unsigned char i = 0; i < cols; i++) {
+            shiftLed(i, row, direction);
+        }
+    }
+}
 
+void LedMatrixMAX7219Driver::shiftCol(unsigned char col,
+        unsigned char direction) {
+    if (!isOutOfBounds(col, 0)) {
+        unsigned char current = matrixData[col];
+        matrixData[col] = ~current;
+        driver->writeRegister(registerMap[col], matrixData[col]);
+        if (direction == RIGHT) {
+            col++;
+        } else {
+            col--;
+        }
+        col %= cols;
+        matrixData[col] = current;
+        driver->writeRegister(registerMap[col], matrixData[col]);
+    }
 }
 
 void LedMatrixMAX7219Driver::switchLeds(unsigned char colFrom,
         unsigned char rowFrom, unsigned char colTo, unsigned char rowTo) {
-
+    unsigned char led = getLed(colFrom, rowFrom);
+    setLed(colFrom, rowFrom, getLed(colTo, rowTo));
+    setLed(colTo, rowTo, led);
 }
 
 void LedMatrixMAX7219Driver::switchCols(unsigned char colFrom,

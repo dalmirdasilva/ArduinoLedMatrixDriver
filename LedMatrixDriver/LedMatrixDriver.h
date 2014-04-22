@@ -20,8 +20,8 @@ protected:
 public:
 
 	enum LedValue {
-		ON = 0x00,
-		OFF = 0x01,
+		OFF = 0x00,
+		ON = 0x01,
 		RED = 0x02,
 		GREEN = 0x04
 	};
@@ -87,6 +87,11 @@ public:
 	 *
 	 */
 	virtual void shiftRow(unsigned char row, unsigned char direction) = 0;
+
+    /**
+     *
+     */
+    virtual void shiftCol(unsigned char col, unsigned char direction) = 0;
 
 	/**
 	 *
