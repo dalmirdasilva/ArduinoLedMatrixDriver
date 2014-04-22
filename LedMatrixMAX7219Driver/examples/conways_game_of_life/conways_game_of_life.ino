@@ -53,7 +53,7 @@ void setup() {
     randomSeed(analogRead(A0));
     for (x = 0; x < WIDTH; x++) {
         for (y = 0; y < HEIGHT; y++) {
-            univ[y][x] = random(0, RANDOM_MAX) < RANDOM_MAX / 6 ? 1 : 0;
+            univ[y][x] = random(0, RANDOM_MAX) < RANDOM_MAX / 4 ? 1 : 0;
         }
     }
 }
