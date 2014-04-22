@@ -62,5 +62,5 @@ void loop() {
     Serial.print('.');
     show();
     evolve();
-    delay(1000);
+    delay(500);
 }
