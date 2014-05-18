@@ -25,6 +25,8 @@
 #define MAX7219_WIDTH 8
 #define MAX7219_HEIGHT 8
 
+#define MAX7219_DIGIR_ORDER LSBFIRST
+
 class MAX7219Driver {
 
     unsigned char dataPin;

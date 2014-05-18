@@ -14,15 +14,16 @@
 #include <LedMatrixDriver.h>
 #include <MAX7219Driver.h>
 
-#define MATRIX_WIDTH 8
-#define MATRIX_HEIGHT 8
+#define MAX7219_MATRIX_WIDTH 8
+#define MAX7219_MATRIX_HEIGHT 8
+#define MAX7219_MATRIX_INVERT_COLUMN_ORDER 0
 
 class LedMatrixMAX7219Driver : public LedMatrixDriver {
 
     MAX7219Driver *driver;
 
-    unsigned char matrixData[MATRIX_WIDTH];
-    static unsigned char registerMap[MATRIX_WIDTH];
+    unsigned char matrixData[MAX7219_MATRIX_WIDTH];
+    static unsigned char registerMap[MAX7219_MATRIX_WIDTH];
 
 public:
 

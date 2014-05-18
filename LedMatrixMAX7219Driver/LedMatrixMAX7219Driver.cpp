@@ -22,7 +22,7 @@ LedMatrixMAX7219Driver::LedMatrixMAX7219Driver(MAX7219Driver *driver,
     driver->setDecodeMode(MAX7219Driver::NO_DECODE);
     driver->setShutdown(MAX7219Driver::NORMAL_MODE);
     driver->fill(0x00);
-    for (unsigned char i = 0; i < MATRIX_WIDTH; i++) {
+    for (unsigned char i = 0; i < MAX7219_MATRIX_WIDTH; i++) {
         matrixData[i] = 0x00;
     }
 }
@@ -152,9 +152,16 @@ void LedMatrixMAX7219Driver::invertRows(unsigned char row) {
 
 }
 
+#if MAX7219_MATRIX_INVERT_COLUMN_ORDER == 1
+unsigned char LedMatrixMAX7219Driver::registerMap[] = {MAX7219Driver::DIGIT7,
+        MAX7219Driver::DIGIT6, MAX7219Driver::DIGIT5, MAX7219Driver::DIGIT4,
+        MAX7219Driver::DIGIT3, MAX7219Driver::DIGIT2, MAX7219Driver::DIGIT1,
+        MAX7219Driver::DIGIT0};
+#else
 unsigned char LedMatrixMAX7219Driver::registerMap[] = {MAX7219Driver::DIGIT0,
-        MAX7219Driver::DIGIT1, MAX7219Driver::DIGIT2, MAX7219Driver::DIGIT3,
-        MAX7219Driver::DIGIT4, MAX7219Driver::DIGIT5, MAX7219Driver::DIGIT6,
-        MAX7219Driver::DIGIT7};
+    MAX7219Driver::DIGIT1, MAX7219Driver::DIGIT2, MAX7219Driver::DIGIT3,
+    MAX7219Driver::DIGIT4, MAX7219Driver::DIGIT5, MAX7219Driver::DIGIT6,
+    MAX7219Driver::DIGIT7};
+#endif /* MATRIX_COL_ORDER */
 
 #endif /* __ARDUINO_DRIVER_LED_MATRIX_MAX7219_CPP__ */

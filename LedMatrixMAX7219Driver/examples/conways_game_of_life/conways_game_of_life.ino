@@ -23,7 +23,7 @@ void evolve() {
     unsigned char x, y, y1, x1;
     for (y = 0; y < HEIGHT; y++) {
         for (x = 0; x < WIDTH; x++) {
-            int n = 0;
+            unsigned char n = 0;
             for (y1 = y - 1; y1 <= y + 1; y1++) {
                 for (x1 = x - 1; x1 <= x + 1; x1++) {
                     if (univ[(y1 + HEIGHT) % HEIGHT][(x1 + WIDTH) % WIDTH]) {

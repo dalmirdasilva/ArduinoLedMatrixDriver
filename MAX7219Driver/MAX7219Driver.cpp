@@ -44,8 +44,8 @@ void MAX7219Driver::setTestMode(unsigned char mode) {
 }
 
 void MAX7219Driver::fill(unsigned char patern) {
-    unsigned char digitMap[MAX7219_WIDTH] = {DIGIT0, DIGIT1, DIGIT2, DIGIT3, DIGIT4, DIGIT5,
-            DIGIT6, DIGIT7};
+    unsigned char digitMap[MAX7219_WIDTH] = {DIGIT0, DIGIT1, DIGIT2, DIGIT3,
+            DIGIT4, DIGIT5, DIGIT6, DIGIT7};
     for (unsigned char i = 0; i < MAX7219_WIDTH; i++) {
         writeRegister(digitMap[i], patern);
     }
@@ -57,9 +57,14 @@ void MAX7219Driver::writeRegister(unsigned char reg, unsigned char value) {
 }
 
 void MAX7219Driver::sendPackage(unsigned int package) {
+    unsigned char reg = (unsigned char) ((package >> 8) & 0xff);
+    unsigned char order = MSBFIRST;
+    if (reg >= DIGIT0 && reg <= DIGIT7) {
+        order = MAX7219_DIGIR_ORDER;
+    }
     digitalWrite(loadPin, LOW);
-    shiftOut(dataPin, clockPin, MSBFIRST, (unsigned char) ((package >> 8) & 0xff));
-    shiftOut(dataPin, clockPin, MSBFIRST, (unsigned char) (package & 0xff));
+    shiftOut(dataPin, clockPin, MSBFIRST, reg);
+    shiftOut(dataPin, clockPin, order, (unsigned char) (package & 0xff));
     digitalWrite(loadPin, HIGH);
 }
 
