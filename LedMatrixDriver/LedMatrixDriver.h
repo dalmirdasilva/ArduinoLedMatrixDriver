@@ -1,7 +1,7 @@
 /**
  * Arduino - LED Matrix driver
  * 
- * LEDMatrixDriver.h
+ * LedMatrixDriver.h
  * 
  * LED Matrix Driver.
  * 
@@ -11,44 +11,57 @@
 #ifndef __ARDUINO_DRIVER_LED_MATRIX_H__
 #define __ARDUINO_DRIVER_LED_MATRIX_H__ 1
 
-class LEDMatrixDriver {
+class LedMatrixDriver {
 
+protected:
 	unsigned char cols;
 	unsigned char rows;
 
 public:
 
 	enum LedValue {
-		ON = 0x00,
-		OFF = 0x01,
+		OFF = 0x00,
+		ON = 0x01,
 		RED = 0x02,
 		GREEN = 0x04
 	};
 
-	enum RowShiftDirection {
-		LEFT = 0x00,
-		RIGHT = 0x01
+	enum ShiftDirection {
+        LEFT = 0x00,
+        RIGHT = 0x01,
+		UP = 0x02,
+		DOWN = 0x03
 	};
 
-	enum ColShiftDirection {
-		UP = 0x00,
-		DOWN = 0x01
-	};
+    /**
+     *
+     */
+    virtual ~LedMatrixDriver();
 
 	/**
 	 *
 	 */
-	LEDMatrixDriver(unsigned char cols, unsigned char rows);
+	LedMatrixDriver(unsigned char cols, unsigned char rows);
 
 	/**
 	 *
 	 */
 	virtual unsigned char isOutOfBounds(unsigned char col, unsigned char row);
 
-	/**
-	 *
-	 */
-	virtual ~LEDMatrixDriver();
+    /**
+     *
+     */
+    virtual void clear() = 0;
+
+    /**
+     *
+     */
+    virtual void fill() = 0;
+
+    /**
+     *
+     */
+    virtual unsigned char getLed(unsigned char col, unsigned char row) = 0;
 
 	/**
 	 *
@@ -75,6 +88,11 @@ public:
 	 */
 	virtual void shiftRow(unsigned char row, unsigned char direction) = 0;
 
+    /**
+     *
+     */
+    virtual void shiftCol(unsigned char col, unsigned char direction) = 0;
+
 	/**
 	 *
 	 */
@@ -98,7 +116,7 @@ public:
 	/**
 	 *
 	 */
-	virtual void invertCol(unsigned char col) = 0;
+	virtual void invertCols(unsigned char col) = 0;
 
 	/**
 	 *
