@@ -1,34 +1,34 @@
-MAX7219Driver/MAX7219Driver.d MAX7219Driver/MAX7219Driver.o:  \
- ../MAX7219Driver/MAX7219Driver.cpp ../MAX7219Driver/MAX7219Driver.h \
-  /usr/share/arduino/hardware/arduino/cores/arduino/Arduino.h \
-  /usr/share/arduino/hardware/arduino/cores/arduino/binary.h \
-  /usr/share/arduino/hardware/arduino/cores/arduino/WCharacter.h \
-  /usr/share/arduino/hardware/arduino/cores/arduino/WString.h \
-  /usr/share/arduino/hardware/arduino/cores/arduino/HardwareSerial.h \
-  /usr/share/arduino/hardware/arduino/cores/arduino/Stream.h \
-  /usr/share/arduino/hardware/arduino/cores/arduino/Print.h \
-  /usr/share/arduino/hardware/arduino/cores/arduino/Printable.h \
-  /usr/share/arduino/hardware/arduino/cores/arduino/new.h \
-  /usr/share/arduino/hardware/arduino/variants/standard/pins_arduino.h
+MAX7219Driver/MAX7219Driver.d: ../MAX7219Driver/MAX7219Driver.cpp \
+ ../MAX7219Driver/MAX7219Driver.h \
+ /home/dalmir/storage/ArduinoCore/Arduino.h \
+ /home/dalmir/storage/ArduinoCore/binary.h \
+ /home/dalmir/storage/ArduinoCore/WCharacter.h \
+ /home/dalmir/storage/ArduinoCore/WString.h \
+ /home/dalmir/storage/ArduinoCore/HardwareSerial.h \
+ /home/dalmir/storage/ArduinoCore/Stream.h \
+ /home/dalmir/storage/ArduinoCore/Print.h \
+ /home/dalmir/storage/ArduinoCore/Printable.h \
+ /home/dalmir/storage/ArduinoCore/new.h \
+ /home/dalmir/storage/ArduinoCore/pins_arduino.h
 
 ../MAX7219Driver/MAX7219Driver.h:
 
-/usr/share/arduino/hardware/arduino/cores/arduino/Arduino.h:
+/home/dalmir/storage/ArduinoCore/Arduino.h:
 
-/usr/share/arduino/hardware/arduino/cores/arduino/binary.h:
+/home/dalmir/storage/ArduinoCore/binary.h:
 
-/usr/share/arduino/hardware/arduino/cores/arduino/WCharacter.h:
+/home/dalmir/storage/ArduinoCore/WCharacter.h:
 
-/usr/share/arduino/hardware/arduino/cores/arduino/WString.h:
+/home/dalmir/storage/ArduinoCore/WString.h:
 
-/usr/share/arduino/hardware/arduino/cores/arduino/HardwareSerial.h:
+/home/dalmir/storage/ArduinoCore/HardwareSerial.h:
 
-/usr/share/arduino/hardware/arduino/cores/arduino/Stream.h:
+/home/dalmir/storage/ArduinoCore/Stream.h:
 
-/usr/share/arduino/hardware/arduino/cores/arduino/Print.h:
+/home/dalmir/storage/ArduinoCore/Print.h:
 
-/usr/share/arduino/hardware/arduino/cores/arduino/Printable.h:
+/home/dalmir/storage/ArduinoCore/Printable.h:
 
-/usr/share/arduino/hardware/arduino/cores/arduino/new.h:
+/home/dalmir/storage/ArduinoCore/new.h:
 
-/usr/share/arduino/hardware/arduino/variants/standard/pins_arduino.h:
+/home/dalmir/storage/ArduinoCore/pins_arduino.h:
