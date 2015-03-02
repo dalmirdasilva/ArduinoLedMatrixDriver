@@ -55,7 +55,7 @@ public:
             unsigned char value);
 
     /**
-     *
+     * TODO: BUGGED
      */
     virtual void setRow(unsigned char row, unsigned char value);
 
