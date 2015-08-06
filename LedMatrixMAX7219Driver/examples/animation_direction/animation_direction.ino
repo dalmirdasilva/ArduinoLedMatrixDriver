@@ -1,9 +1,9 @@
 #include <MAX7219Driver.h>
-#include <LEDMatrixDriver.h>
-#include <LEDMatrixMAX7219Driver.h>
+#include <LedMatrixDriver.h>
+#include <LedMatrixMAX7219Driver.h>
 
 MAX7219Driver driver(10, 11, 12);
-LEDMatrixMAX7219Driver matrix(&driver, 8, 8);
+LedMatrixMAX7219Driver matrix(&driver, 8, 8);
 
 unsigned int i = 0, j = 7;
 

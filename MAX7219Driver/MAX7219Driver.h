@@ -68,18 +68,14 @@ public:
     };
 
     enum DecodeMode {
-        NO_DECODE = 0x00,
-        DECODE_0 = 0x01,
-        DECODE_0_TO_3 = 0x0f,
-        DECODE_0_TO_7 = 0xff
+        NO_DECODE = 0x00, DECODE_0 = 0x01, DECODE_0_TO_3 = 0x0f, DECODE_0_TO_7 = 0xff
     };
 
     enum TestMode {
         TEST_MODE_OFF = 0x00, TEST_MODE_ON = 0x01
     };
 
-    MAX7219Driver(unsigned char dataPin, unsigned char clockPin,
-            unsigned char loadPin);
+    MAX7219Driver(unsigned char dataPin, unsigned char clockPin, unsigned char loadPin);
 
     void setShutdown(unsigned char value);
 
