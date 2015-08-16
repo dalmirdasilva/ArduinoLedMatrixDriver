@@ -39,6 +39,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/LedMatrixMAX7221Driver}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/MAX7219Driver}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ArduinoCore}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ArduinoCore/variants/standard}&quot;"/>
 								</option>
 								<inputType id="de.innot.avreclipse.cppcompiler.input.2098869785" superClass="de.innot.avreclipse.cppcompiler.input"/>
 							</tool>
