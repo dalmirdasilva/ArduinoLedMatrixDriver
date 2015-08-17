@@ -1,4 +1,3 @@
-ArduinoLEDMatrix
-================
+# Arduino Led Matrix Driver
 
-Driving LED Matrix using different drivers transparently for the user perspective.
+[Documentation.pdf](Documentation.pdf)
