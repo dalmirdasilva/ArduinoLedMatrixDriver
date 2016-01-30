@@ -20,14 +20,14 @@ void setup() {
 }
 
 void loop() {
-    matrix.shiftLed(0, i%8, LEDMatrixDriver::UP);
-    matrix.shiftLed(1, j%8, LEDMatrixDriver::DOWN);
-    matrix.shiftLed(2, i%8, LEDMatrixDriver::UP);
-    matrix.shiftLed(3, j%8, LEDMatrixDriver::DOWN);
-    matrix.shiftLed(4, i%8, LEDMatrixDriver::UP);
-    matrix.shiftLed(5, j%8, LEDMatrixDriver::DOWN);
-    matrix.shiftLed(6, i%8, LEDMatrixDriver::UP);
-    matrix.shiftLed(7, j%8, LEDMatrixDriver::DOWN);
+    matrix.shiftLed(0, i%8, LedMatrixMAX7219Driver::UP);
+    matrix.shiftLed(1, j%8, LedMatrixMAX7219Driver::DOWN);
+    matrix.shiftLed(2, i%8, LedMatrixMAX7219Driver::UP);
+    matrix.shiftLed(3, j%8, LedMatrixMAX7219Driver::DOWN);
+    matrix.shiftLed(4, i%8, LedMatrixMAX7219Driver::UP);
+    matrix.shiftLed(5, j%8, LedMatrixMAX7219Driver::DOWN);
+    matrix.shiftLed(6, i%8, LedMatrixMAX7219Driver::UP);
+    matrix.shiftLed(7, j%8, LedMatrixMAX7219Driver::DOWN);
     i++;
     j--;
     delay(80);

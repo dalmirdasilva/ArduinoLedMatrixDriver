@@ -1,4 +1,4 @@
-ARDUINO_LIB_PATH=/usr/share/arduino/libraries
+ARDUINO_LIB_PATH=~/Arduino/libraries
 LIB_LIST=MAX7219Driver \
 	LedMatrixDriver \
 	LedMatrixMAX7219Driver \
